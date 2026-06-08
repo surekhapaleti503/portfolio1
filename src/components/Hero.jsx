@@ -201,12 +201,13 @@ function Hero() {
           {/* Right Image */}
           <div style={styles.imageContainer}>
 
-            <img
-              src={heroImg}
-              alt="Surekha"
-              style={styles.image}
-              className="floating-image"
-            />
+          <img
+  src={heroImg}
+  alt="Surekha"
+  loading="lazy"
+  style={styles.image}
+  className="floating-image"
+/>
 
           </div>
 

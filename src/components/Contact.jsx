@@ -1,6 +1,30 @@
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
+import { useState } from "react";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaLinkedin,
+  FaGithub
+} from "react-icons/fa";
 
 function Contact() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    alert("Message Sent Successfully!");
+
+    setFormData({
+      name: "",
+      email: "",
+      message: ""
+    });
+  };
 
   const styles = {
     section: {
@@ -50,6 +74,11 @@ function Contact() {
       fontSize: "1.5rem"
     },
 
+    link: {
+      color: "white",
+      textDecoration: "none"
+    },
+
     input: {
       width: "100%",
       padding: "15px",
@@ -58,7 +87,8 @@ function Contact() {
       border: "none",
       background: "#252c4a",
       color: "white",
-      fontSize: "1rem"
+      fontSize: "1rem",
+      boxSizing: "border-box"
     },
 
     textarea: {
@@ -71,7 +101,8 @@ function Contact() {
       color: "white",
       fontSize: "1rem",
       resize: "none",
-      marginBottom: "20px"
+      marginBottom: "20px",
+      boxSizing: "border-box"
     },
 
     button: {
@@ -97,6 +128,7 @@ function Contact() {
       <div style={styles.container}>
 
         {/* Left Side */}
+
         <div style={styles.left}>
 
           <div style={styles.info}>
@@ -111,36 +143,75 @@ function Contact() {
 
           <div style={styles.info}>
             <FaLinkedin style={styles.icon} />
-            <span>linkedin.com/in/surekha</span>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+              style={styles.link}
+            >
+              LinkedIn Profile
+            </a>
           </div>
 
           <div style={styles.info}>
             <FaGithub style={styles.icon} />
-            <span>github.com/surekha</span>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noreferrer"
+              style={styles.link}
+            >
+              GitHub Profile
+            </a>
           </div>
 
         </div>
 
         {/* Right Side */}
+
         <div style={styles.right}>
 
-          <form>
+          <form onSubmit={handleSubmit}>
 
             <input
               type="text"
               placeholder="Your Name"
               style={styles.input}
+              required
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  name: e.target.value
+                })
+              }
             />
 
             <input
               type="email"
               placeholder="Your Email"
               style={styles.input}
+              required
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  email: e.target.value
+                })
+              }
             />
 
             <textarea
               placeholder="Your Message"
               style={styles.textarea}
+              required
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  message: e.target.value
+                })
+              }
             />
 
             <button
