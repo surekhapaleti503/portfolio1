@@ -1,3 +1,4 @@
+import projects from "../data/projects";
 function Projects() {
 
   const styles = {
@@ -27,12 +28,14 @@ function Projects() {
     },
 
     card: {
-      width: "350px",
-      background: "#252c4a",
-      borderRadius: "20px",
-      padding: "30px",
-      boxShadow: "0 0 20px rgba(56,189,248,0.15)"
-    },
+  width: "350px",
+  background: "#252c4a",
+  borderRadius: "20px",
+  padding: "30px",
+  boxShadow: "0 0 20px rgba(56,189,248,0.15)",
+  transition: "all 0.3s ease",
+  cursor: "pointer"
+},
 
     title: {
       fontSize: "1.8rem",
@@ -47,11 +50,14 @@ function Projects() {
     },
 
     tech: {
-      color: "#38bdf8",
-      fontWeight: "600",
-      marginBottom: "20px"
-    },
-
+  color: "#38bdf8",
+  fontWeight: "600",
+  marginBottom: "20px",
+  border: "1px solid #38bdf8",
+  padding: "10px",
+  borderRadius: "10px",
+  textAlign: "center"
+},
     button: {
       padding: "12px 25px",
       border: "none",
@@ -71,64 +77,55 @@ function Projects() {
       </h1>
 
       <div style={styles.container}>
+        {projects.map((project) => (
+  <div key={project.id} style={styles.card}>
+    
+    <h2 style={styles.title}>
+      {project.title}
+    </h2>
 
-        {/* Project 1 */}
-        <div style={styles.card}>
-          <h2 style={styles.title}>
-            Smart City FAP Distribution
-          </h2>
+    <p style={styles.description}>
+      {project.description}
+    </p>
 
-          <p style={styles.description}>
-            Intelligent distribution of fresh agricultural products
-            in smart cities using optimization techniques to reduce
-            cost and improve customer satisfaction.
-          </p>
+    <div style={styles.tech}>
+  {project.technologies}
+</div>
 
-          <p style={styles.tech}>
-            Fuzzy Logic • IQPSO • Simulation
-          </p>
+<div
+  style={{
+    display: "flex",
+    gap: "10px",
+    marginTop: "20px"
+  }}
+>
+  <a
+    href={project.github}
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      ...styles.button,
+      textDecoration: "none"
+    }}
+  >
+    GitHub
+  </a>
 
-          
-        </div>
+  <a
+    href={project.demo}
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      ...styles.button,
+      textDecoration: "none"
+    }}
+  >
+    Live Demo
+  </a>
+</div>
 
-        {/* Project 2 */}
-        <div style={styles.card}>
-          <h2 style={styles.title}>
-            Data Analytics Dashboard
-          </h2>
-
-          <p style={styles.description}>
-            Analyzed large datasets, performed SQL queries,
-            maintained databases and created visualizations
-            for business insights.
-          </p>
-
-          <p style={styles.tech}>
-            SQL • Excel • Data Visualization
-          </p>
-
-          
-        </div>
-
-        {/* Project 3 */}
-        <div style={styles.card}>
-          <h2 style={styles.title}>
-            Personal Portfolio Website
-          </h2>
-
-          <p style={styles.description}>
-            Responsive portfolio website developed using
-            React JS and Tailwind CSS with modern UI design
-            and smooth animations.
-          </p>
-
-          <p style={styles.tech}>
-            React JS • Tailwind CSS • JavaScript
-          </p>
-
-          
-        </div>
-
+  </div>
+))}
       </div>
 
     </section>
