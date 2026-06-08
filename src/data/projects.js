@@ -6,8 +6,8 @@ const projects = [
     description:
       "Responsive portfolio website developed using React JS and Tailwind CSS.",
     technologies: "React JS, Tailwind CSS, JavaScript",
-    github: "https://github.com/yourusername/portfolio",
-    demo: "https://yourportfolio.vercel.app",
+    github: "https://github.com/surekhapaleti503/portfolio1.git",
+    demo: "https://drive.google.com/file/d/1hUuzQfJyJ3yZGQ5WvrrNbHZH1SQcK756/view?usp=sharing",
   },
 
   
